@@ -1,0 +1,10 @@
+require: rubocop-rspec
+
+# We do type checking, so we can't use spies/have_received
+RSpec/MessageSpies:
+  Enabled: false
+
+# RSpec blocks can be lengthy. TODO: move this to .rubocop.yml in spec directory
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/specs/**/*.rb'
