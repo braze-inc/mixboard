@@ -45,6 +45,14 @@ module Mixboard
       configuration.dynamic_channel_store
     end
 
+    def sources
+      configuration.sources
+    end
+
+    def sinks
+      configuration.sinks
+    end
+
     private
 
     def channel_map
@@ -56,7 +64,7 @@ module Mixboard
       @last_map_refresh = Time.now.to_i
       map = configuration.channel_map.dup
 
-      configuration.dynamic_channel_store.active_channel_map.each do |source, channels|
+      dynamic_channel_store.active_channel_map.each do |source, channels|
         map[source] ||= []
         map[source].concat(channels)
       end

@@ -1,0 +1,18 @@
+<h1>Dynamic Channel Configuration</h1>
+
+<table>
+  <% @dynamic_channels.each do |id, channel, expiry| %>
+    <tr>
+      <td><%= id %></td>
+      <td><%= channel %></td>
+      <td><%= expiry %></td>
+    </tr>
+  <% end %>
+  <%= form_with url: dynamic_channels_create_path do |form| %>
+    <tr>
+      <td><%= form.text_field :email %></td>
+      <td><%= form.submit %></td>
+    </tr>
+  <% end %>
+
+</table>
